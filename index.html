@@ -60,7 +60,7 @@
         let count = 0;
         const symbols = ["🎂", "🎁", "🎈", "🎉", "🍰"];
         const interval = setInterval(() => {
-          emojis.textContent += symbols[count % 2];
+          emojis.textContent += symbols[count % 5];
           count++;
           if (count === 150) clearInterval(interval);
         }, 150);
