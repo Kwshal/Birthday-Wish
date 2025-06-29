@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Birthday Wish</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background: black;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        //height: 100vh;
+        flex-direction: column;
+        text-align: center;
+      }
+      h1 {
+        color: hotpink;
+        font-size: 3rem;
+        animation: pulse 1s infinite;
+      }
+      h2 {
+        margin-top: 20px;
+        font-size: 1.5rem;
+        color: lightyellow;
+        min-height: 2em;
+      }
+      #emojis {
+        margin-top: 20px;
+        font-size: 2rem;
+        line-height: 1.5;
+        max-width: 90vw;
+        word-break: break-word;
+      }
+      keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Happy Birthday</h1>
+    <h2 id="message"></h2>
+    <div id="emojis"></div>
+
+    <script>
+      const message = document.getElementById("message");
+      const emojis = document.getElementById("emojis");
+
+      
+        message.innerHTML = "Cake <br> Make a wish before the cake disappears.";
+
+
+      setTimeout(() => {
+        message.textContent = "Oops... the cake disappeared.";
+      }, 3000);
+
+      setTimeout(() => {
+        message.textContent = "Just kidding. Here are your cakes and gifts:";
+        let count = 0;
+        const symbols = ["🎂", "🎁", "🎈", "🎉", "🍰"];
+        const interval = setInterval(() => {
+          emojis.textContent += symbols[count % 2];
+          count++;
+          if (count === 150) clearInterval(interval);
+        }, 150);
+      }, 7000);
+    </script>
+  </body>
+    </html>
